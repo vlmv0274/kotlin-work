@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
         val S: Float =0.5f*(side1+side2+side3)
         val AreaToRoot: Float =S*(S-side1)*(S-side2)*(S-side3)
         val AreaTotal: Float =sqrt(AreaToRoot)
-        val AreaOutput = String.format("%.6f", AreaTotal)
+        val AreaOutput = String.format("%.5f", AreaTotal)
 
         println("Area = $AreaOutput")
     }
