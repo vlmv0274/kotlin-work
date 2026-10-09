@@ -1,4 +1,4 @@
-// COMP2850 Portfolio: Week 1
+A// COMP2850 Portfolio: Week 1
 // Program to compute area of a triangle
 
 import kotlin.math.sqrt
@@ -13,16 +13,13 @@ fun main(args: Array<String>) {
         val side2 =args[1].toFloat()
         val side3 =args[2].toFloat()
         // S=1/2(a+b+c), then sqrroot s*a*b*c
-        val S: Float =0.5*(side1+side2+side3)
+        val S: Float =0.5f*(side1+side2+side3)
         val AreaToRoot: Float =S*(S-side1)*(S-side2)*(S-side3)
         val AreaTotal: Float =sqrt(AreaToRoot)
-        val AreaOutput: Float = String.format("%.6f", AreaTotal)
+        val AreaOutput = String.format("%.6f", AreaTotal)
 
         println("Area = $AreaOutput")
     }
 
 
 }
-
-
-
