@@ -1,4 +1,4 @@
-A// COMP2850 Portfolio: Week 1
+// COMP2850 Portfolio: Week 1
 // Program to compute area of a triangle
 
 import kotlin.math.sqrt
