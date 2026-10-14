@@ -6,29 +6,19 @@ import kotlin.math.sqrt
 typealias Triangle = Triple<Double,Double,Double>
 
 // Add isValidTriangle() and triangleArea() functions here
-fun isValidTriangle(args: Array<String>){
-  if (args.size != 3) {
-    var TriangleValiditity: Boolean = false
-  } else if (args != Int || Float || Double){
-    var TriangleValiditity: Boolean = false
-  } else {
-    var TriangleValiditity: Boolean = true
-    return TriangleValiditity
-  }
+fun isValidTriangle(triangle: Triangle): Boolean{
+  val (side1, side2, side3) = triangle
+
+  return side1 > 0 && side2 > 0 && side3 > 0 && side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1
 }
 
-fun triangleArea(args: Array<String>){
-  if (args.size != 3) {
-    exitProcess(1)
-    } else {
-        val side1 =args[0].toFloat()
-        val side2 =args[1].toFloat()
-        val side3 =args[2].toFloat()
-        // S=1/2(a+b+c), then sqrroot s*(S-a)*(S-b)*(S-c)
-        val S: Float =0.5f*(side1+side2+side3)
-        val AreaToRoot: Float =S*(S-side1)*(S-side2)*(S-side3)
-        val AreaTotal: Float =sqrt(AreaToRoot)
-        val AreaOutput = String.format("%.5f", AreaTotal)
-    }
-  return AreaOutput
+fun triangleArea(triangle: Triangle): Double{
+  val side1 = triangle.first 
+  val side2 = triangle.second 
+  val side3 = triangle.third 
+  // S=1/2(a+b+c), then sqrroot s*(S-a)*(S-b)*(S-c)
+  val S: Double =0.5f*(side1+side2+side3)
+  val AreaToRoot: Double =S*(S-side1)*(S-side2)*(S-side3)
+  val AreaTotal: Double =sqrt(AreaToRoot)
+  return AreaTotal
 }
