@@ -16,3 +16,10 @@ fun medianOfList(datalist: List<Float>): Float{
     var median: Float = sortedDataList.elementAt(oddSelector)
     return median
   }
+
+fun displayStatistics(datalist: List<Float>){
+  println(min(datalist))
+  println(max(datalist))
+  println(average(datalist))
+  println(medianOfList(datalist))
+}
