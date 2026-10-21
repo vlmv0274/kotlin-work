@@ -17,4 +17,20 @@ class MedianTest : FreeSpec({
     }
 
     // Write four more tests here
+    "Median should be 10 of list=10" {
+        List<Float>(1) { 10 } shouldBe 10f
+    }
+
+    "Median should be 15 of list=10,20" {
+        List<Float>(2) { 10 , 20} shouldBe 15f
+    }
+
+    "Median should be 20 of list=10,20,40" {
+        List<Float>(2) { 10 , 20} shouldBe 20f
+    }
+    
+    "Median should be 15 of list=10,20" {
+        List<Float>(2) { 10 , 20, 40, 200} shouldBe 30f
+    }
+    
 })
