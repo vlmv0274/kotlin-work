@@ -5,17 +5,21 @@ import kotlin.math.sqrt
 class Triangle (val sideA: Double, val sideB: Double, val sideC: Double){
 
     init {
-        require(side1 < side2 + side3 || side2 < side1 + side3 || side3 < side1 + side2) {"Degenerate or imaginary case"}
+        require(sideA < sideB + sideC || sideB < sideA + sideC || sideC < sideA + sideB) {"Degenerate or imaginary case"}
     }
     val perimeter: Double get() = sideA + sideB + sideC
     val semiPerimeter: Double get() = (sideA + sideB + sideC)/2
-    val S: Double =0.5f*(side1+side2+side3)
-    val AreaToRoot: Double =S*(S-side1)*(S-side2)*(S-side3)
+    val S: Double =(sideA+sideB+sideC)/2.0
+    val AreaToRoot: Double =S*(S-sideA)*(S-sideB)*(S-sideC)
     val AreaTotal: Double =sqrt(AreaToRoot)
     val area: Double get() = AreaToRoot
-    toString() "Triangle($sideA, $sideB, $sideC)"
+    override fun toString(): String = "Triangle($sideA, $sideB, $sideC)"
 
-}
+
+/*
+Could do positive only numbers with a require
+Maybe change to ANDs
+
 /*
     sideA : Double
     sideB : Double
