@@ -26,6 +26,7 @@ class ToDoList() {
         loadedFile.forEachLine {line ->
             val segments = line.split(": ", limit = 3)
             items.add(ToDoItem(dueDate = LocalDate.parse(segments[0]),status = ItemStatus.valueOf(segments[1]),description = segments[2]))
+        }
 
     }
 
