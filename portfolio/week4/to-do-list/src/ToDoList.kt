@@ -10,9 +10,9 @@ class ToDoList() {
     private val items = mutableListOf<ToDoItem>()
 
     val size get() = items.size
-    val notStarted get() = items.count {it.ItemStatus == ItemStatus.NotStarted}// compute no. of items with NotStarted status
-    val inProgress get() = items.count {it.ItemStatus == ItemStatus.InProgress}// compute no. of items with InProgress status
-    val done get() = items.count {it.ItemStatus == ItemStatus.Done}// compute no. of items with Done status
+    val notStarted get() = items.count {it.status == ItemStatus.NotStarted}// compute no. of items with NotStarted status
+    val inProgress get() = items.count {it.status == ItemStatus.InProgress}// compute no. of items with InProgress status
+    val done get() = items.count {it.status == ItemStatus.Done}// compute no. of items with Done status
     val overdue get() = items.count {it.isOverdue()}// compute no. of overdue items
 
     constructor(filename: String): this() {
@@ -25,7 +25,7 @@ class ToDoList() {
         val loadedFile = Path(filename)
         loadedFile.forEachLine {line ->
             val segments = line.split(": ", limit = 3)
-            items.add(ToDoItem(dueDate = LocalDate.parse(parts[0]),status = ItemStatus.valueOf(parts[1]),description = parts[2])
+            items.add(ToDoItem(dueDate = LocalDate.parse(segments[0]),status = ItemStatus.valueOf(segments[1]),description = segments[2]))
 
     }
 
@@ -56,4 +56,5 @@ class ToDoList() {
         // that are due on the specified date
         return items.filter {it.dueDate == date}
     }
+}
 }
