@@ -9,7 +9,7 @@ class StudentAccount(holder: String) : BankAccount(holder) {
     var overdraft: Int = 0 //default0
         set(value) {
             require(value in 0..MAX_OVERDRAFT) {
-                "Overdraft must be an amount from 0 to $MAX_OVERDRAFT"
+                "Overdraft cannot exceed upper limit"
             }
             field = value
         }
