@@ -2,6 +2,10 @@ package comp2850.banking
 
 class StudentAccount(holder: String) : BankAccount(holder) {
 
+    //singleton
+    companion object {
+        const val MAX_OVERDRAFT = 100
+    }
     var overdraft: Int = 0 //default0
         set(value) {
             require(value in 0..MAX_OVERDRAFT) {
@@ -24,8 +28,5 @@ class StudentAccount(holder: String) : BankAccount(holder) {
     override fun toString(): String {
         return "Account for $holder, balance = $balance (overdraft = $overdraft)"
     }
-//singleton
-    companion object {
-        const val MAX_OVERDRAFT = 100
-    }
+
 }
